@@ -1,5 +1,14 @@
 # Python motion handler script for tg
 
+Create a folder in `home/{device}` named `motion`
+
+Install dependencies:
+
+```
+sudo apt install python3 python3-pip
+pip3 install python-telegram-bot
+```
+
 Init the environment variables:
 
 ```
