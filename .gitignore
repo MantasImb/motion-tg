@@ -1,0 +1,21 @@
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+
+# Motion output videos (adjust path/pattern as needed)
+*.h264
+*.mp4
+*.avi
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+.env
