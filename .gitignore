@@ -19,3 +19,8 @@ venv/
 *.log
 
 .env
+
+
+# Added by cargo
+
+/target
