@@ -1,7 +1,3 @@
-# CLAUDE.md
-
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
 This is a personal home security camera project that integrates with the `motion` daemon to detect motion events and send notifications to Telegram. The project is implemented in Rust.
@@ -16,6 +12,7 @@ This is a personal home security camera project that integrates with the `motion
 ## Environment Setup
 
 Required environment variables:
+
 - `TELEGRAM_TOKEN`: Bot token for Telegram API
 - `CHAT_ID`: Target Telegram chat ID
 
@@ -36,3 +33,4 @@ The application is designed to be triggered by the motion daemon. Motion events 
 
 - Motion captures video files (`.h264`, `.mp4`, `.avi`) - excluded from git
 - Log files (`.log`) - excluded from git
+

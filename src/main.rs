@@ -13,9 +13,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     let video_path = &args[1];
-    let telegram_token =
-        env::var("TELEGRAM_TOKEN").expect("TELEGRAM_TOKEN environment variable must be set");
-    let chat_id = env::var("CHAT_ID").expect("CHAT_ID environment variable must be set");
+
+    if !Path::new(video_path).exists() {
+        return Err(format!("Video file not found: {}", video_path).into());
+    }
+
+    let telegram_token = env::var("TELEGRAM_TOKEN")
+        .map_err(|_| "TELEGRAM_TOKEN environment variable must be set")?;
+    let chat_id = env::var("CHAT_ID").map_err(|_| "CHAT_ID environment variable must be set")?;
 
     send_telegram_notification(&telegram_token, &chat_id, video_path).await?;
 

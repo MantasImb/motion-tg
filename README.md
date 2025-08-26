@@ -12,7 +12,7 @@ I chose to use `motion` for motion detection and `Rust` for the handler script.
 
 Create a `.env` file in the project directory:
 
-```
+```env
 TELEGRAM_TOKEN=your_bot_token
 CHAT_ID=your_chat_id
 ```
@@ -27,7 +27,7 @@ cargo build --release
 
 Edit `/etc/motion/motion.conf` and add:
 
-```
+```conf
 on_movie_end /path/to/rpimotioncamera/target/release/rpimotioncamera %f
 ```
 
@@ -53,4 +53,4 @@ cargo run -- /path/to/test/video.mp4
 
 1. Create a new bot by messaging @BotFather on Telegram
 2. Get your bot token from BotFather
-3. Get your chat ID by messaging @userinfobot or checking https://api.telegram.org/bot{TOKEN}/getUpdates after sending a message to your bot
+3. Get your chat ID by messaging @userinfobot or checking [https://api.telegram.org/bot{TOKEN}/getUpdates] after sending a message to your bot
