@@ -20,7 +20,7 @@ CHAT_ID=your_chat_id
 ### 2. Build the Application
 
 ```bash
-cargo build --release
+cargo install --path .
 ```
 
 ### 3. Configure Motion
@@ -28,10 +28,10 @@ cargo build --release
 Edit `/etc/motion/motion.conf` and add:
 
 ```conf
-on_movie_end /path/to/rpimotioncamera/target/release/rpimotioncamera %f
+on_movie_end ~/.cargo/bin/rpimotioncamera %f
 ```
 
-Replace `/path/to/rpimotioncamera` with the actual path to your project directory.
+The rpimotioncamera script will be installed in your Cargo bin directory (usually `~/.cargo/bin/`).
 
 ## Usage
 
