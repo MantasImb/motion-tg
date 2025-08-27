@@ -10,7 +10,7 @@ I chose to use `motion` for motion detection and `Rust` for the handler script.
 
 ### 1. Environment Variables
 
-Create a `.env` file in the project directory:
+Create a `.env` file in the motion directory (`/etc/motion/.env`):
 
 ```env
 TELEGRAM_TOKEN=your_bot_token

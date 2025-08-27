@@ -3,7 +3,7 @@ use std::path::Path;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    dotenv::dotenv().ok();
+    dotenv::from_filename("/etc/motion/.env").ok();
 
     let args: Vec<String> = env::args().collect();
 
