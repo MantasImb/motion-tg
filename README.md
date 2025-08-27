@@ -1,23 +1,56 @@
-# Python motion handler script for tg
+# Rust Motion Camera Handler
 
-Create a folder in `home/{device}` named `motion`
+## Overview
 
-Install dependencies:
+This project is for my personal home camera that records motion events captured
+by a camera and sends notifications to a Telegram chat.
+I chose to use `motion` for motion detection and `Rust` for the handler script.
 
+## Setup
+
+### 1. Environment Variables
+
+Create a `.env` file in the motion directory (`/etc/motion/.env`):
+
+```env
+TELEGRAM_TOKEN=your_bot_token
+CHAT_ID=your_chat_id
 ```
-sudo apt install python3 python3-pip
-pip3 install python-telegram-bot
+
+### 2. Build the Application
+
+```bash
+cargo install --path .
 ```
 
-Init the environment variables:
+### 3. Configure Motion
 
-```
-export TELEGRAM_TOKEN="your_token"
-export CHAT_ID="your_chat_id"
+Edit `/etc/motion/motion.conf` and add:
+
+```conf
+on_movie_end ~/.cargo/bin/rpimotioncamera %f
 ```
 
-Edit `/etc/motion/motion.conf`:
+The rpimotioncamera script will be installed in your Cargo bin directory (usually `~/.cargo/bin/`).
 
+## Usage
+
+The application automatically runs when motion is detected and a video file is saved. It will:
+
+1. Receive the video file path from the motion daemon
+2. Send a Telegram notification with the video filename
+3. Log success or error messages
+
+## Manual Testing
+
+You can test the application manually:
+
+```bash
+cargo run -- /path/to/test/video.mp4
 ```
-on_movie_end python3 /home/pi/motion/send_to_telegram.py %f
-```
+
+## Telegram Bot Setup
+
+1. Create a new bot by messaging @BotFather on Telegram
+2. Get your bot token from BotFather
+3. Get your chat ID by messaging @userinfobot or checking [https://api.telegram.org/bot{TOKEN}/getUpdates] after sending a message to your bot
